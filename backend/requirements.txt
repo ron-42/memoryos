@@ -1,0 +1,16 @@
+apscheduler==3.10.4
+fastapi==0.115.12
+google-generativeai==0.8.5
+httpx==0.28.1
+langchain-text-splitters==0.3.8
+openai==1.72.0
+orjson==3.10.16
+PyMuPDF==1.25.5
+pydantic==2.11.2
+pydantic-settings==2.8.1
+python-dotenv==1.1.0
+python-multipart==0.0.20
+scikit-learn==1.6.1
+uvicorn[standard]==0.34.0
+pytest==8.3.5
+pytest-asyncio==0.26.0

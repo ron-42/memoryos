@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-sans: "Inter", "Segoe UI", Arial, sans-serif;
+  --font-display: "Inter", "Segoe UI", Arial, sans-serif;
+  --bg: #09090b;
+  --bg-deep: #101218;
+  --panel: rgba(15, 17, 22, 0.94);
+  --panel-soft: rgba(20, 23, 31, 0.9);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --accent: #2563eb;
+  --accent-strong: #3b82f6;
+  --warm: #71717a;
+  --danger: #fb7185;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 22%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  letter-spacing: -0.01em;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body::after {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0) 62%);
+  content: "";
+  filter: blur(120px);
+  height: 14rem;
+  left: 50%;
+  opacity: 0.24;
+  pointer-events: none;
+  position: fixed;
+  top: -8rem;
+  transform: translateX(-50%);
+  width: 32rem;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.24);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  .surface {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 1.25rem;
+  }
+
+  .surface-soft {
+    background: var(--panel-soft);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.875rem;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+  }
+
+  .surface-accent {
+    border-color: rgba(59, 130, 246, 0.18);
+    background: rgba(15, 20, 31, 0.96);
+  }
+
+  .surface-warm {
+    background: rgba(19, 20, 26, 0.96);
+  }
+
+  .eyebrow {
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.625rem;
+    padding: 0.625rem 0.95rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .btn-primary {
+    background: #fafafa;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #09090b;
+  }
+
+  .btn-primary:hover {
+    background: #e4e4e7;
+  }
+
+  .btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .btn-primary-accent {
+    background: var(--accent);
+    border-color: rgba(59, 130, 246, 0.32);
+    color: white;
+  }
+
+  .btn-primary-accent:hover {
+    background: var(--accent-strong);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--line-strong);
+  }
+
+  .input-field,
+  .textarea-field,
+  .file-drop {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.01);
+    color: var(--text);
+    transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  }
+
+  .input-field {
+    min-height: 2.875rem;
+    padding: 0.85rem 0.95rem;
+  }
+
+  .textarea-field {
+    min-height: 14rem;
+    resize: vertical;
+    padding: 0.95rem;
+  }
+
+  .file-drop {
+    display: flex;
+    min-height: 14rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .input-field:focus,
+  .textarea-field:focus,
+  .file-drop:focus-within {
+    outline: none;
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .input-field::placeholder,
+  .textarea-field::placeholder {
+    color: var(--muted);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 0.36rem 0.68rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .badge-accent {
+    background: rgba(37, 99, 235, 0.12);
+    border-color: rgba(59, 130, 246, 0.24);
+    color: #dbeafe;
+  }
+
+  .badge-warm {
+    background: rgba(113, 113, 122, 0.12);
+    border-color: rgba(113, 113, 122, 0.22);
+    color: #d4d4d8;
+  }
+
+  .badge-danger {
+    background: rgba(244, 63, 94, 0.12);
+    border-color: rgba(244, 63, 94, 0.22);
+    color: #fecdd3;
+  }
+
+  .nav-link {
+    display: block;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    padding: 0.8rem 0.9rem;
+    color: var(--muted);
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+  }
+
+  .nav-link-active {
+    background: rgba(37, 99, 235, 0.08);
+    border-color: rgba(59, 130, 246, 0.18);
+    color: var(--text);
+  }
+
+  .tab-trigger {
+    border-radius: 0.625rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .tab-trigger:hover {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+  }
+
+  .tab-trigger-active {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(255, 255, 255, 0.88);
+    color: #09090b;
+  }
+}
+
+@media (min-width: 768px) {
+  .surface {
+    padding: 1.5rem;
+  }
+}
