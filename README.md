@@ -36,6 +36,26 @@ This is intentionally narrowed for a weekend build:
 - Pinecone for dense vector search
 - capture scope limited to article URLs, PDFs, and pasted text
 
+## Future Plans
+
+The current build is the focused MVP. The longer-term goal is to turn MemoryOS into a clean personal knowledge SaaS with:
+- multi-user authentication and hosted accounts
+- cloud relational storage instead of local SQLite
+- team-safe project isolation and billing-ready account boundaries
+- browser extension and share-sheet capture flows
+- richer ingestion for newsletters, highlights, bookmarks, and read-later pipelines
+- stronger memory graphing, topic clustering, and longitudinal learning analytics
+- better ranking, re-ranking, and agentic recall over a larger personal archive
+- polished onboarding, workspace settings, and production deployment workflows
+
+## Product Goal
+
+The intended SaaS direction is not “another bookmarking app.” The goal is to build a system that:
+- captures what a user actually consumes
+- turns it into structured memory
+- makes that memory queryable and connected over time
+- shows compounding learning through retrieval, topic growth, and relationship discovery
+
 ## Local Setup
 
 ### Backend
